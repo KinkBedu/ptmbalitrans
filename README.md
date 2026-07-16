@@ -116,23 +116,53 @@ npm run dev
 
 The application will be available at `http://localhost:3000`.
 
+### Docker Setup
+
+```bash
+# Start all services (app + MongoDB)
+docker compose up -d
+
+# Start and rebuild containers
+docker compose up -d --build
+
+# View running containers
+docker compose ps
+
+# View application logs
+docker compose logs -f app
+
+# Stop all services
+docker compose down
+
+# Stop and remove all data (including database volumes)
+docker compose down -v
+```
+
+The application will be available at `http://localhost:3000` and MongoDB at `localhost:27017`.
+
 ### Environment Variables
 
 Create a `.env` file in the project root:
 
 ```env
-DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/ptmbalitrans"
+DATABASE_URL="mongodb://root:password@localhost:27017/ptmbalitrans?authSource=admin"
 JWT_SECRET="your-secret-key"
 NEXT_PUBLIC_SITE_URL="http://localhost:3000"
 ```
 
 ## Scripts
 
-| Command          | Description                 |
-| ---------------- | --------------------------- |
-| `npm run dev`    | Start development server    |
-| `npm run build`  | Build for production        |
-| `npm run start`  | Start production server     |
+| Command                        | Description                              |
+| ------------------------------ | ---------------------------------------- |
+| `npm run dev`                  | Start development server                 |
+| `npm run build`                | Build for production                     |
+| `npm run start`                | Start production server                  |
+| `docker compose up -d`         | Start app + MongoDB containers           |
+| `docker compose up -d --build` | Rebuild and start containers             |
+| `docker compose down`          | Stop all containers                      |
+| `docker compose logs -f app`   | Follow application logs                  |
+| `bash scripts/deploy.sh`       | Deploy to VPS                            |
+| `bash scripts/setup-vps.sh`    | Initial VPS setup                        |
 
 ## API Endpoints
 
@@ -156,6 +186,6 @@ This project is proprietary. All rights reserved.
 
 <div align="center">
 
-Made by **Bagas** — [Contact via WhatsApp](https://wa.me/6285280239768)
+Made by **Bagas** [Contact via WhatsApp](https://wa.me/6285280239768)
 
 </div>
