@@ -1,0 +1,118 @@
+/* Hero section — public landing page */
+
+.hero {
+  /* Accent palette (teal — fits Bali / ocean brand feel) */
+  --hero-accent: #0ea5a4;
+  --hero-accent-strong: #0f766e;
+  --hero-accent-soft: rgba(14, 165, 164, 0.16);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+  padding: 6rem 1.5rem;
+  color: #ffffff;
+  isolation: isolate;
+  overflow: hidden;
+
+  /* Gradient backdrop. To use a photo instead, add it on the line below,
+     e.g. background-image: linear-gradient(...), url("/images/hero.jpg"); */
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(13, 80, 95, 0.7)),
+    radial-gradient(circle at 75% 25%, var(--hero-accent-soft), transparent 55%);
+  background-color: #0b1b2b;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__content {
+  position: relative;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hero-accent);
+  background: var(--hero-accent-soft);
+  border: 1px solid rgba(14, 165, 164, 0.4);
+  border-radius: 999px;
+}
+
+.hero__title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  max-width: 36rem;
+  margin: 0 0 2.25rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  transition: transform 0.15s ease, background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.hero__cta--primary {
+  color: #ffffff;
+  background-color: var(--hero-accent);
+  border: 1px solid var(--hero-accent);
+}
+
+.hero__cta--primary:hover {
+  background-color: var(--hero-accent-strong);
+  border-color: var(--hero-accent-strong);
+  transform: translateY(-2px);
+}
+
+.hero__cta--secondary {
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.hero__cta--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 80vh;
+    padding: 4rem 1.25rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
